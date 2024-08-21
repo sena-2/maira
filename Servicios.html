@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .btn-like {
+            background-color: #4CAF50;
+        }
+
+        .btn-dislike {
+            background-color: #f44336;
+        }
+
+        .vote-count {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Portafolio</h1>
+    <div class="gallery">
+        <!-- Video 1 -->
+        <div class="video-container">
+            <iframe src="fotos/video1.mp4" title="YouTube video player"
+                frameborder="0" allowfullscreen></iframe>
+            <div class="buttons">
+                <button class="btn btn-like" onclick="vote('video1', 'like')">👍 Me gusta</button>
+                <button class="btn btn-dislike" onclick="vote('video1', 'dislike')">👎 No me gusta</button>
+            </div>
+            <div id="video1-votes" class="vote-count">Likes: 0 | Dislikes: 0</div>
+        </div>
+        <!-- Video 2 -->
+        <div class="video-container">
+            <iframe src="fotos/video2.mp4" title="YouTube video player"
+                frameborder="0" allowfullscreen></iframe>
+            <div class="buttons">
+                <button class="btn btn-like" onclick="vote('video2', 'like')">👍 Me gusta</button>
+                <button class="btn btn-dislike" onclick="vote('video2', 'dislike')">👎 No me gusta</button>
+            </div>
+            <div id="video2-votes" class="vote-count">Likes: 0 | Dislikes: 0</div>
+        </div>
+        <!-- Video 3 -->
+        <div class="video-container">
+            <iframe src="fotos/video6.mp4" title="YouTube video player"
+                frameborder="0" allowfullscreen></iframe>
+            <div class="buttons">
+                <button class="btn btn-like" onclick="vote('video3', 'like')">👍 Me gusta</button>
+                <button class="btn btn-dislike" onclick="vote('video3', 'dislike')">👎 No me gusta</button>
+            </div>
+            <div id="video3-votes" class="vote-count">Likes: 0 | Dislikes: 0</div>
+        </div>
+        <!-- Video 4 -->
+        <div class="video-container">
+            <iframe src="fotos/video5.mp4" title="YouTube video player"
+                frameborder="0" allowfullscreen></iframe>
+            <div class="buttons">
+                <button class="btn btn-like" onclick="vote('video4', 'like')">👍 Me gusta</button>
+                <button class="btn btn-dislike" onclick="vote('video4', 'dislike')">👎 No me gusta</button>
+            </div>
+            <div id="video4-votes" class="vote-count">Likes: 0 | Dislikes: 0</div>
+        </div>
+        <!-- Video 5 -->
+        <div class="video-container">
+            <iframe src="fotos/video4.mp4" title="YouTube video player"
+                frameborder="0" allowfullscreen></iframe>
+            <div class="buttons">
+                <button class="btn btn-like" onclick="vote('video5', 'like')">👍 Me gusta</button>
+                <button class="btn btn-dislike" onclick="vote('video5', 'dislike')">👎 No me gusta</button>
+            </div>
+            <div id="video5-votes" class="vote-count">Likes: 0 | Dislikes: 0</div>
+        </div>
+        <!-- Video 6 -->
+        <div class="video-container">
+            <iframe src="fotos/video2.mp4" title="YouTube video player"
+                frameborder="0" allowfullscreen></iframe>
+            <div class="buttons">
+                <button class="btn btn-like" onclick="vote('video6', 'like')">👍 Me gusta</button>
+                <button class="btn btn-dislike" onclick="vote('video6', 'dislike')">👎 No me gusta</button>
+            </div>
+            <div id="video6-votes" class="vote-count">Likes: 0 | Dislikes: 0</div>
+        </div>
+    </div>
+
+    <script>
+        function vote(videoId, voteType) {
+            const likeKey = `${videoId}-like`;
+            const dislikeKey = `${videoId}-dislike`;
+            const currentLikes = localStorage.getItem(likeKey) || 0;
+            const currentDislikes = localStorage.getItem(dislikeKey) || 0;
+
+            if (voteType === 'like') {
+                localStorage.setItem(likeKey, parseInt(currentLikes) + 1);
+            } else if (voteType === 'dislike') {
+                localStorage.setItem(dislikeKey, parseInt(currentDislikes) + 1);
+            }
+
+            updateVoteCount(videoId);
+        }
+
+        function updateVoteCount(videoId) {
+            const likeKey = `${videoId}-like`;
+            const dislikeKey = `${videoId}-dislike`;
+            const likes = localStorage.getItem(likeKey) || 0;
+            const dislikes = localStorage.getItem(dislikeKey) || 0;
+
+            document.getElementById(`${videoId}-votes`).textContent = `Likes: ${likes} | Dislikes: ${dislikes}`;
+        }
+
+        // Initialize vote counts on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateVoteCount('video1');
+            updateVoteCount('video2');
+            updateVoteCount('video3');
+            updateVoteCount('video4');
+            updateVoteCount('video5');
+            updateVoteCount('video6');
+        });
+    </script>
+
+</body>
+
+</html>
+

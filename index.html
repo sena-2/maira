@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" href="fotos/logo.png">
+    <title>Landing Maira</title>
+</head>
+
+<body>
+    <header class="head">
+        <div class="logo">
+            <a href="#">Maira</a>
+        </div>
+        <nav class="navbar" id="navbar">
+            <a href="Servicios.html" target="_blank">Portafolio</a>
+            <a href="#contactobox">Contacto</a>
+        </nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="content header">
+        <h1 class="title1">BIENVENIDOS</h1>
+        <img class="img-reproductor" src="fotos/perfil.jpg" alt="Perfil de Wendy">
+        <p class="text-1">
+            Soy Maira experta en diseño gráfico, apasionada y comprometida con la creación de soluciones visuales innovadoras y efectivas. Tengo una gran experiencia en el mercado, hemos ayudado a marcas y empresas a contar sus historias, conectar con sus audiencias y alcanzar sus objetivos a través de diseño. Nuestra filosofía se basa en la creatividad, la atención al detalle y la colaboración cercana con nuestros clientes.
+        </p>
+    </section>
+
+    <section class="content sau">
+        <img src="fotos/logo.png" alt="" width="15%">
+        <br>
+        <h2 class="title3">Servicios</h2>
+        <p>
+            Como diseñadora gráfica, me especializo en ofrecer soluciones creativas y funcionales en el ámbito del diseño de empaques. Mi objetivo es ayudar a las marcas a destacar en el mercado con empaques que no solo sean estéticamente atractivos, sino que también cumplan con las necesidades prácticas del producto y del consumidor. Entre los servicios que ofrezco se incluyen:
+        </p>
+        <br>
+        <div class="box-container">
+            <div class="box">
+                <i class="fab fa-angular"></i>
+                <h3>Diseño de identidad corporativa:</h3>
+                <p>Desarrollo la identidad visual completa de tu marca, incluyendo tarjetas de presentación, papelería, y otros materiales que refuercen tu presencia en el mercado.</p>
+            </div>
+            <div class="box">
+                <i class="fab fa-apple"></i>
+                <h3>Diseño de empaques:</h3>
+                <p>Diseño empaques creativos y funcionales que no solo protegen tu producto, sino que también lo hacen destacar en el punto de venta.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fab fa-apple"></i>
+                <h3>Diseño de publicidad impresa:</h3>
+                <p>Creo flyers, posters, banners y otros materiales impresos que capturan la atención y comunican tu mensaje de manera clara y efectiva.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fab fa-apple"></i>
+                <h3>Diseño editorial:</h3>
+                <p>Diseño revistas, catálogos, libros y otros materiales editoriales, cuidando cada detalle para lograr un equilibrio perfecto entre texto e imagen.</p>
+            </div>
+            <div class="box">
+                <i class="fab fa-apple"></i>
+                <h3>Consultoría en diseño gráfico:</h3>
+                <p>Ofrezco asesoramiento personalizado para mejorar la estética y funcionalidad de tus materiales gráficos, asegurando que comuniquen efectivamente tu marca.</p>
+            </div>
+            <div class="box">
+                <i class="fab fa-apple"></i>
+                <h3>Diseño web:</h3>
+                <p>Creo interfaces web intuitivas y visualmente atractivas que ofrecen una experiencia de usuario fluida y eficaz.</p>
+            </div>
+            
+            
+        </div>
+
+    </section>
+
+    <section id="contactobox" class="content-contact">        
+        <h2 class="title2">Contacto</h2>
+        <p>Solicita nuestros servicios en nuestras líneas de atención vía WhatsApp.</p>
+        <br>
+        <a href="https://wa.me/573214969972" class="btn" target="_blank">Contactar por WhatsApp</a>
+    </section>
+
+    <footer class="content-footer">
+        <p>&copy; Lading maira 2024.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('navbar').classList.toggle('active');
+        });
+    </script>
+
+
+
+</body>
+
+
