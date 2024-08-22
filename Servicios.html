@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="fotos/logo.png">
     <title>Galería de Videos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #041529;
             margin: 0;
             padding: 20px;
             text-align: center;
         }
+
+        html {
+    scroll-behavior: smooth;
+}
 
         .gallery {
             display: grid;
@@ -56,23 +61,178 @@
         }
 
         .btn-like {
-            background-color: #4CAF50;
+            background-color: #041529;
         }
 
         .btn-dislike {
-            background-color: #f44336;
+            background-color: #5496e2cb;
         }
 
         .vote-count {
             margin-top: 10px;
             font-size: 16px;
         }
+
+
+        .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    margin: 5px;
+    background: #041529;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.porto6 {
+    color: #ffffff;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #e46d05;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+    background-color: #20b358;
+}
+
+.whatsapp-button:active {
+    background-color: #1da94f;
+}
+
+
+
+
+
+
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        width: 150px;
+        text-align: left;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .navbar a {
+        color: #fff;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+}
+
+
+
+
     </style>
 </head>
 
 <body>
 
-    <h1>Portafolio</h1>
+    <header class="head">
+        <div class="logo">
+            <a href="#">Maira</a>
+        </div>
+        <nav class="navbar" id="navbar">
+            <a href="#portafolio">Portafolio</a>
+            <a href="#contacto3">Contacto</a>
+            
+
+        </nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+
+
+
+    <h1 id="portafolio" class="porto6">PORTAFOLIO</h1>
     <div class="gallery">
         <!-- Video 1 -->
         <div class="video-container">
@@ -136,6 +296,14 @@
         </div>
     </div>
 
+    <br>
+    <br>
+
+    <a id="contacto3" href="https://wa.me/57321496997" class="whatsapp-button" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+        Contáctanos en WhatsApp
+    </a>
+
     <script>
         function vote(videoId, voteType) {
             const likeKey = `${videoId}-like`;
@@ -171,6 +339,13 @@
             updateVoteCount('video6');
         });
     </script>
+
+<script>
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('navbar').classList.toggle('active');
+    });
+</script>
 
 </body>
 
